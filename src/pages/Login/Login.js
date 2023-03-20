@@ -2,14 +2,14 @@ import * as React from "react";
 import {Box, Avatar, Typography } from '@mui/material';
 import LoginWithGoogle from "./LoginWithGoogle";
 
-const Login = (props) => {
+const Login = (props) => {  
   return (
     <React.Fragment>
       <Box
         sx={{
           position: "absolute",
           top: '0',
-          backgroundColor: "white",
+          background: "linear-gradient(180deg, #84EECE 0%, #4957DA 48.96%, #A35CFD 100%)",
           width: "100%",
           height: "100%",
           display: 'flex',
@@ -17,7 +17,6 @@ const Login = (props) => {
           justifyContent: "flex-start",
           alignItems: "center",
           gap: "10px"
-
         }}
       >
         <Box
@@ -28,38 +27,15 @@ const Login = (props) => {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            marginTop: "50px"
+            marginTop: "50px",
+            backgroundColor:"white",
           }}
         >
-          <Avatar alt="XR-Goods-Company" variant="square" src="./assets/images/xrgoodsLogo.svg"
-            sx={{
-              width: 50, height: 50,
-              padding: "10px",
-              "& img": {
-                padding: "10px",
-              }
-            }}
-          />
-          <Typography
-            sx={{
-              fontSize: '1rem',
-              fontWeight: "600"
-            }}
-          >ETHDenver AR NFT</Typography>
+
         </Box>
-        <Typography
-          sx={{
-            fontSize: '1rem',
-            fontWeight: "200"
-          }}
-        >Continue with</Typography>
-        <LoginWithGoogle setPageState={props.setPageState} setLoginResponse={props.setLoginResponse} />
-        <Typography
-          sx={{
-            fontSize: '1rem',
-            fontWeight: "200"
-          }}
-        >External Wallet</Typography>
+
+        <LoginWithGoogle setPageMode={props.setPageMode} setPageState={props.setPageState} setLoginResponse={props.setLoginResponse} />
+
       </Box>
     </React.Fragment >
   );

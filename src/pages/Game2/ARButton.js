@@ -62,33 +62,7 @@ const ARButton = (props) => {
                         }
                     });
 
-
             });
-
-
-        // fetch(nftImageUrl)
-
-        // imageTag.src = nftImageUrl
-        // imageTag.onload = () => {
-        //     renderScene()
-        // }
-
-
-        // const data = {
-        //     secret: "o*6Pd4^5@bd&T@",
-        //     image_url: nftImageUrl
-        // }
-
-        // fetch("https://us-central1-ethdenver-ar-nft.cloudfunctions.net/ar-nft-url-to-image", {
-        //     method: "POST", // *GET, POST, PUT, DELETE, etc.
-        //     body: JSON.stringify(data)
-        // })
-        //     .then((response) => response.json())
-        //     .then((data) => console.log(data));
-
-
-
-
     }, [])
 
 
@@ -466,7 +440,6 @@ const ARButton = (props) => {
                     onClick={ARHandler}
                     sx={{
                         width: "200px",
-                        left: "calc(50% - 100px)"
 
                     }}
                 >Start AR</Button>
@@ -474,7 +447,7 @@ const ARButton = (props) => {
                 <Button variant="contained"
                     sx={{
                         width: "200px",
-                        left: "calc(50% - 100px)"
+
 
                     }}
                 >AR Not Support</Button>

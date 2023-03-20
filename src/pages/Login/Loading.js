@@ -7,7 +7,7 @@ const Loading = () => {
                 sx={{
                     position: "absolute",
                     top: '0',
-                    backgroundColor: "white",
+                    background: "linear-gradient(180deg, #84EECE 0%, #4957DA 48.96%, #A35CFD 100%)",
                     width: "100%",
                     height: "100%",
                     display: 'flex',
@@ -20,45 +20,42 @@ const Loading = () => {
                 <Box
                     sx={{
                         width: "100%",
+                        height: "60%",
                         maxWidth: "400px",
                         display: 'flex',
-                        flexDirection: "row",
+                        flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                        marginTop: "50px"
-                    }}
-                >
-                    <Avatar alt="XR-Goods-Company" variant="square" src="./assets/images/xrgoodsLogo.svg"
-                        sx={{
-                            width: 50, height: 50,
-                            padding: "10px",
-                            "& img": {
-                                padding: "10px",
-                            }
-                        }}
-                    />
-                    <Typography
-                        sx={{
-                            fontSize: '1rem',
-                            fontWeight: "600"
-                        }}
-                    >ETHDenver AR NFT</Typography>
-                </Box>
-                <Box
-                    sx={{
-                        height: "60%",
-                        display: "flex",
-                        alignItems: "center",
-                        flexDirection: "column",
-                        justifyContent: "space-evenly",
-                        width: "100vw",
-                        background: "#ffffff",
-                        zIndex: "100",
+                        gap: "10px",
                     }}
                 >
                     <Typography
-                    >Loading Data, Please Wait</Typography>
-                    <CircularProgress />
+                        sx={{
+                            fontSize: "2.5rem",
+                            color: "white",
+                            textAlign: "center",
+                            fontWeight: "800"
+                        }}
+                    >
+                        Proof of Completion
+                    </Typography>
+                    <Box
+                        sx={{
+                            height: "60%",
+                            display: "flex",
+                            alignItems: "center",
+                            flexDirection: "column",
+                            justifyContent: "space-evenly",
+                            width: "100vw",
+                            zIndex: "1000",
+                        }}
+                    >
+                        <Typography
+                        >Loading Data, Please Wait</Typography>
+                        <CircularProgress sx={{
+                            color:"white"
+                        }} />
+                    </Box>
                 </Box>
             </Box>
         </React.Fragment >

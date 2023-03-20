@@ -9,13 +9,6 @@ const NFTCards = (props) => {
 
 const url = prpsUrl.slice(0, 4) === "ipfs" ?  `https://ipfs.io/ipfs/${prpsUrl.slice(5)}`:props.nft.metadata.image
 
-// console.log({url})
-
-//  https://ipfs.io/ipfs/QmZfjpjxLw3oE28Ac41SuFnytKVJpkV8Y6ZNq5m3JB9jzN/830.jpg
- 
- 
-
-
   return (
     <React.Fragment>
       <Box

@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Card, CardMedia, CardActions, Typography, CardContent } from '@mui/material';
-import { Box, display } from "@mui/system";
-
+import React from "react";
+import {Typography } from '@mui/material';
 
 
 const DetailCard = (props) => {
-
     return (
         <React.Fragment>
-
-
 
             <Typography
                 sx={{

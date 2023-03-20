@@ -2,8 +2,9 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { AuthService, tryRegisterSW } from "@liquality/wallet-sdk";
 import Web3 from "web3";
-import { Button, Box, Avatar, Typography, TextField } from '@mui/material';
-import WalletIcon from '@mui/icons-material/Wallet';
+import { Button, Box, Avatar, Typography } from '@mui/material';
+
+import FooterIcon from "../FooterIcon";
 
 const LoginWithGoogle = (props) => {
     const [tKey, setTKey] = useState({});
@@ -60,19 +61,7 @@ const LoginWithGoogle = (props) => {
         console.log({ balance, response, longinresponse })
         props.setLoginResponse(longinresponse);
         props.setPageState(null)
-    };
-
-
-    const logInUsingAddress = async () => {
-        const balance = await web3.eth.getBalance(inputAddress)
-        const longinresponse = {
-            balance: Web3.utils.fromWei(balance, 'ether'),
-            address: inputAddress,
-            email: "unknowing",
-            price,
-        }
-        props.setLoginResponse(longinresponse);
-        props.setPageState(null)
+        props.setPageMode("check")
     };
 
     const handleAddress = (event) => {
@@ -92,74 +81,74 @@ const LoginWithGoogle = (props) => {
                     gap: "10px",
                 }}
             >
-                <TextField id="outlined-basic" label="Email" variant="outlined"
+                <Typography
                     sx={{
-                        width: "70%",
+                        fontSize: "2.5rem",
+                        color: "white",
+                        textAlign: "center",
+                        fontWeight:"800"
                     }}
-                />
-                <Button variant="contained"
+                >
+                    Proof of Completion
+                </Typography>
+                <Box
                     sx={{
-                        width: "70%",
-                        justifyContent: "space-evenly",
-                        fontSize: '1rem',
-                        fontWeight: "600",
-                        backgroundColor: "linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%)"
+                        width: "100%",
+                        maxWidth: "350px",
+                        display: 'flex',
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "10px",
+                        background: "white",
+                        borderRadius:"10px"
                     }}
-                    onClick={createNewWallet}
-                    startIcon={<Avatar alt="XR-Goods-Company" variant="square" src="./assets/images/search.png"
+                >
+                    <Box component='img'
+                        alt="XR-Goods-Company" variant="square" src="./assets/images/walaLogo-vert-color.png"
                         sx={{
+                            width: 150,
+                            padding: "10px",
+                            "& img": {
+                                padding: "10px",
+                            }
+                        }}
+                    />
+                    <Button variant="contained"
+                        sx={{
+                            width: "80%",
+                            justifyContent: "space-evenly",
+                            fontSize: '0.8rem',
+                            fontWeight: "600",
+                            color: 'black',
+                            borderRadius: "100px",
                             backgroundColor: "white",
-                            width: 20, height: 20,
-                            padding: "10px",
-                            "& img": {
-                                padding: "10px",
+                            border: "2px solid #268FD6",
+                            "&:hover": {
+                                backgroundColor: "white",
                             }
                         }}
-                    />}>
-                    Login or Create
-                </Button>
-                <Typography
-                    sx={{
-                        fontSize: '0.7rem',
-                        fontWeight: "200"
-                    }}
-                >Powered by Liquality Wallet SDK</Typography>
-
-
-                <Typography
-                    sx={{
-                        fontSize: '1.3rem',
-                        fontWeight: "600"
-                    }}
-                >OR</Typography>
-                <TextField id="outlined-basic" label="Wallet Address" variant="outlined"
-                    value={inputAddress}
-                    onChange={handleAddress}
-                    sx={{
-                        width: "70%",
-                    }}
-                />
-
-                <Button variant="contained"
-                    sx={{
-                        width: "70%",
-                        justifyContent: "space-evenly",
-                        fontSize: '1rem',
-                        fontWeight: "600",
-                        backgroundColor: "linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%)"
-                    }}
-                    onClick={logInUsingAddress}
-                    startIcon={<WalletIcon
+                        onClick={createNewWallet}
+                        startIcon={<Avatar alt="XR-Goods-Company" variant="square" src="./assets/images/search.png"
+                            sx={{
+                                backgroundColor: "white",
+                                width: 20, height: 20,
+                                padding: "10px",
+                                "& img": {
+                                    padding: "10px",
+                                }
+                            }}
+                        />}>
+                        Login or Create Wallet
+                    </Button>
+                    <Typography
                         sx={{
-                            width: 20, height: 20,
-                            padding: "10px",
-                            "& img": {
-                                padding: "10px",
-                            }
+                            fontSize: '0.7rem',
+                            fontWeight: "200"
                         }}
-                    />}>
-                    Login With Address
-                </Button>
+                    >Powered by Liquality SDK Hosted with spheron</Typography>
+                <FooterIcon />
+                </Box>
             </Box>
         </React.Fragment >
     );

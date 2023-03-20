@@ -50,7 +50,9 @@ const CheckCertificate = (props) => {
                 }}
             >
 
-                {props.initApp && hasCertificate &&
+{/* {props.initApp && hasCertificate && */}
+
+                {props.initApp &&   // hardcode becasue we not able to mint the nft
                     <Box
                     sx={{
                         height:"100%",

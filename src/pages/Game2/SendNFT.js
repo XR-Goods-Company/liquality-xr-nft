@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Button, Box, Avatar, Typography,Divider } from '@mui/material';
+import {Box, Typography } from '@mui/material';
 
 const SendNFT = (props) => {
     return (
