@@ -46,6 +46,18 @@ const LoginWithGoogle = (props) => {
         init();
     }, []);
 
+    const logInUsingAddress = async () => {
+        const balance = await web3.eth.getBalance(inputAddress)
+        const longinresponse = {
+            balance: Web3.utils.fromWei(balance, 'ether'),
+            address: inputAddress,
+            email: "unknowing",
+            price,
+        }
+        props.setLoginResponse(longinresponse);
+        props.setPageState(null)
+        props.setPageMode("check")
+    };
 
     const createNewWallet = async () => {
         props.setPageState("loading")
@@ -86,7 +98,7 @@ const LoginWithGoogle = (props) => {
                         fontSize: "2.5rem",
                         color: "white",
                         textAlign: "center",
-                        fontWeight:"800"
+                        fontWeight: "800"
                     }}
                 >
                     Proof of Completion
@@ -101,7 +113,7 @@ const LoginWithGoogle = (props) => {
                         alignItems: "center",
                         gap: "10px",
                         background: "white",
-                        borderRadius:"10px"
+                        borderRadius: "10px"
                     }}
                 >
                     <Box component='img'
@@ -147,7 +159,26 @@ const LoginWithGoogle = (props) => {
                             fontWeight: "200"
                         }}
                     >Powered by Liquality SDK Hosted with spheron</Typography>
-                <FooterIcon />
+                    <Button variant="contained"
+                        sx={{
+                            width: "80%",
+                            justifyContent: "space-evenly",
+                            fontSize: '0.8rem',
+                            fontWeight: "600",
+                            color: 'black',
+                            borderRadius: "100px",
+                            backgroundColor: "white",
+                            border: "2px solid #268FD6",
+                            "&:hover": {
+                                backgroundColor: "white",
+                            }
+                        }}
+                        onClick={logInUsingAddress}
+                        
+                        >
+                        Login With Demo Address
+                    </Button>
+                    <FooterIcon />
                 </Box>
             </Box>
         </React.Fragment >
