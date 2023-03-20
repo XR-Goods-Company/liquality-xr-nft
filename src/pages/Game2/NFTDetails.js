@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Network, Alchemy } from "alchemy-sdk";
-import { Box } from "@mui/system";
+import { Box, Button } from '@mui/material';
 
 import ARButton from "./ARButton";
 import DetailCard from "./DetailCard";
 
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const settings = {
     apiKey: "wkpzpi-qA95xJVeqdZCOHfLDIyUjs-Ae",
@@ -43,6 +44,17 @@ const NFTDetails = (props) => {
 
     return (
         <React.Fragment>
+            <Button variant="contained"
+            sx={{
+                left:"10px",
+                backgroundColor:"#1976d2"
+            }}
+            onClick={()=>{
+                props.setNft(null)
+            }}
+            startIcon={<ArrowBackIcon />}>
+                Back
+            </Button>
             {nft &&
                 <Box
                     sx={{
@@ -88,7 +100,7 @@ const NFTDetails = (props) => {
                         ></DetailCard>
 
                     </Box>
-                    
+
                 </Box>
             }
             {nft && imageUrl && <ARButton image={imageUrl}></ARButton>}

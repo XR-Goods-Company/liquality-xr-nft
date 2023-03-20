@@ -45,7 +45,7 @@ const Game2 = (props) => {
                 />
 
                 {nft ?
-                    <NFTDetails nft={nft} loginResponse={props.loginResponse} />
+                    <NFTDetails nft={nft} setNft={setNft} loginResponse={props.loginResponse} />
                     :
                     <NFTCollection setNft={setNft} address={props.loginResponse.address} />
                 }
